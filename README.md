@@ -1,6 +1,6 @@
-# CodeCampo
+# Lantuwang
 
-It's the source of http://codecampo.com , a light weight bbs for developer.
+It's the source of http://lantuwang.com , a light weight bbs for developer.
 
 ## Dependency
 
@@ -11,8 +11,8 @@ It's the source of http://codecampo.com , a light weight bbs for developer.
 
 ## Setup
 
-    git clone git://github.com/chloerei/code_campo.git
-    cd code_campo
+    git clone git://github.com/YipingCai/lantuwang.git
+    cd lantuwang
     bundle install
     cp config/app_config.example.yml config/app_config.yml
     cp config/mongoid.example.yml config/mongoid.yml
