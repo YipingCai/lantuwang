@@ -1,0 +1,27 @@
+!!! 5
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= page_title_with_notification
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = timeago_script_tag
+    - if content_for? :head
+      = yield :head
+    = csrf_meta_tags
+  %body
+    = render :partial => 'layouts/topbar'
+    #main
+      .container
+        .row
+          #sidebar.span3
+            = render :partial => 'shared/sidebar_profile'
+            %ul#settings-nav.nav.nav-tabs.nav-stacked
+              %li{:class => (controller_name == 'accounts' ? 'active' : nil)}= link_to t('.account'), settings_account_path
+              %li{:class => (controller_name == 'passwords' ? 'active' : nil)}= link_to t('.password'), settings_password_path
+              %li{:class => (controller_name == 'profiles' ? 'active' : nil)}= link_to t('.profile'), settings_profile_path
+          #mainbar.span9
+            %section#settings.box
+              = yield
+  = render :partial => 'layouts/footer'

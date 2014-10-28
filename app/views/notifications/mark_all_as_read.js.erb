@@ -1,0 +1,6 @@
+(function() {
+  $('#sidebar .notifications a').addClass('read').find('.count').text('0');
+  $('#notifications span.new').fadeOut('fast', function(){
+    $(this).remove();
+  });
+})()

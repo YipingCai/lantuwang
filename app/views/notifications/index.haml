@@ -1,0 +1,21 @@
+#main
+  .container
+    .row
+      #mainbar.span9
+        - if @notifications.any?
+          %section.box#notifications.no-padding
+            %table.item-list
+              %tbody
+                - @notifications.each do |notification|
+                  %tr{:id => notification.anchor}
+                    = render :partial => "notifications/#{notification.class.name.underscore}", :locals => {:notification => notification}
+                    %td.last
+                      = link_to '×', notification_path(notification), :class => 'close', :method => :delete, :remote => true
+          = paginate @notifications
+        - else
+          %section.box
+            = t '.no_notifications'
+      #sidebar.span3
+        = render :partial => 'shared/sidebar_profile'
+        %section.box
+          = button_to t('.mark_all_as_read'), mark_all_as_read_notifications_path, :class => 'btn', :data => {:disable_with => t('.marking')}, :remote => true, :method => :put

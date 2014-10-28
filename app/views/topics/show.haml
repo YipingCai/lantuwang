@@ -1,0 +1,71 @@
+- @page_title = "#{@topic.title} - #{t('.topics')}"
+
+- if logined?
+  - content_for :head do
+    = javascript_include_tag 'editor'
+    = stylesheet_link_tag 'editor'
+    = javascript_include_tag 'topics/show'
+
+#main
+  .container
+    .row
+      .span12
+        %ul.breadcrumb
+          %li
+            = link_to t('.topics'), topics_path
+            %span.divider /
+          %li.active= @topic.title
+    .row
+      #mainbar.span9
+        %section#topic.box
+          %article{:id => @topic.anchor}
+            %header
+              %table
+                %tbody
+                  %tr
+                    %td
+                      %h1= @topic.title
+                      - if @topic.tags && @topic.tags.any?
+                        %span.tags
+                          - @topic.tags.each do |tag|
+                            = link_to tag, tagged_topics_path(:tag => tag)
+                      %span.author
+                        = link_to_person @topic.user
+                      %span.time
+                        = t('created_at')
+                        = format_time @topic.created_at
+                        - if @topic.edited?
+                          = t('updated_at')
+                          = format_time @topic.edited_at
+                      - if logined? && current_user == @topic.user
+                        = link_to t('edit'), edit_topic_path(@topic)
+                    %td.avatar
+                      = link_to image_tag(@topic.user.gravatar_url(:size => 72)), person_path(@topic.user)
+            ~ format_text @topic.content, :mention_names => @topic.mentioned_user_names
+            %footer
+              = render :partial => 'marks_count', :locals => {:topic => @topic}
+        %section#replies.box.no-padding
+          %table.item-list
+            %tbody
+              = render :partial => 'replies/reply', :collection => @replies
+        = paginate @replies
+        - if logined?
+          %section#editor.box
+            %h4= t('.post_reply')
+            = form_for @reply, :url => replies_path(:topic_id => @topic), :remote => true do |f|
+              = render :partial => 'replies/form', :object => f
+              .control-group= f.submit t('submit'), :class => 'btn primary', :data => {:disable_with => t('form_disable_with')}
+
+      #sidebar.span3
+        - if logined?
+          = render :partial => 'shared/sidebar_profile'
+        %section.box
+          %header
+            = t('.relate_topics')
+          .content
+            - if @relate_topics.any?
+              %ul.nice-list
+                - @relate_topics.each do |topic|
+                  %li= link_to topic.title, topic
+            - else
+              = t('.no_relate_topics')

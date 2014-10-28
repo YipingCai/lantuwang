@@ -1,0 +1,26 @@
+- @page_title = "#{t('.new_reply')} - #{t('.topics')}"
+
+- content_for :head do
+  = javascript_include_tag 'editor'
+  = stylesheet_link_tag 'editor'
+
+#main
+  .container
+    .row
+      .span12
+        %ul.breadcrumb
+          %li
+            = link_to t('.topics'), topics_path
+            %span.divider /
+          %li
+            = link_to @topic.title, @topic
+            %span.divider /
+          %li.active= t('.new_reply')
+    .row
+      #mainbar.span9
+        %section#editor.box
+          = form_for @reply, :url => replies_path(:topic_id => @topic) do |f|
+            = render :partial => 'form', :object => f
+            .clearfix= f.submit t('submit'), :class => 'btn primary'
+      #sidebar.span3
+        = render :partial => 'shared/sidebar_profile'

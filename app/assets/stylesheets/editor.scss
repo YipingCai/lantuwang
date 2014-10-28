@@ -1,0 +1,43 @@
+/*
+ *= require 'wmd/wmd'
+ *= require 'tag_editor'
+ */
+
+#editor-preview {
+  border: 2px dotted #CCC;
+  padding: 3px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+#editor {
+  input[type=text],
+
+  label.message {
+  }
+
+  .tag-editor {
+    width: 100%;
+
+    input {
+      width: auto;
+    }
+  }
+}
+
+.wmd-prompt-dialog {
+  background-color: white;
+  padding: 10px 15px 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  border: 1px solid #DDD;
+}
+
+@media (max-width: 480px) {
+  #editor-button-bar,
+  #editor-preview {
+    display: none;
+  }
+}

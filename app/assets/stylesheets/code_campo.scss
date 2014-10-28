@@ -1,0 +1,481 @@
+html, body {
+  background-color: #EEE;
+}
+
+body > footer {
+  margin: 20px 0;
+
+  p {
+    color: #555;
+    margin-bottom: 0;
+  }
+
+  div > p {
+    text-align: left;
+  }
+}
+
+pre code {
+  background-color: transparent;
+}
+
+p {
+  line-height: 20px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  img {
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+}
+
+.full-input-wrap {
+  padding-right: 10px;
+
+  textarea, input {
+    width: 100%;
+  }
+}
+
+label.message{
+  color: red;
+  font-weight: normal;
+  display: inline-block;
+}
+
+form.button_to {
+  margin: 0;
+}
+
+table.clear-table {
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  td {
+    padding: 0;
+    margin: 0;
+    border: none;
+    line-height: 20px;
+  }
+}
+
+.tags a {
+  line-height: 22px;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 1px 4px;
+  background-color: #BFBFBF;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+
+  &:hover {
+    text-decoration: none;
+    background-color: #AAA;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clearbox {
+  overflow: hidden;
+}
+
+.clearbox::after {
+  clear: both;
+}
+
+table.item-list {
+  width: 100%;
+
+  tr {
+    border-top: 1px solid #DDD;
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  td {
+    padding: 10px;
+    vertical-align: top;
+
+    &.avatar {
+      width: 48px;
+      height: 48px;
+      padding-right: 0;
+      line-height: 0;
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    &.content {
+      word-break: break-word;
+    }
+
+    &.reply-count {
+      text-align: right;
+      padding-left: 0;
+
+      a {
+        color: #FFF;
+        background-color: #BFBFBF;
+        padding: 2px 9px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: bold;
+        text-decoration: none;
+
+        &.read {
+          background-color: #EEE;
+        }
+        &:hover {
+          background-color: #AAA;
+        }
+      }
+    }
+  }
+
+  h3 {
+    font-size: 100%;
+    padding-bottom: 10px;
+    line-height: 18px;
+  }
+
+}
+
+#remote-loader {
+  position: fixed;
+  left: 50%;
+  top: 15px;
+  margin-left: -40px;
+  width: 80px;
+  text-align: center;
+
+  .label.important {
+    cursor: pointer;
+  }
+}
+
+#topbar {
+  margin: 30px 0 20px;
+
+  .logo, .nav {
+    vertical-align: middle;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 30px;
+    margin-right: 20px;
+    color: white;
+    margin-bottom: 15px;
+    display: inline-block;
+
+    a {
+      vertical-align: middle;
+      color: #555;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .nav {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  .active.dropdown a:hover {
+    color: white;
+  }
+
+  .pull-right .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+}
+
+footer div > p {
+  text-align: center;
+}
+
+.box {
+  background-color: white;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  -moz-box-shadow: 0 0 0 1px #DDD;
+  -webkit-box-shadow: 0 0 0 1px #DDD;
+  box-shadow: 0 0 0 1px #DDD;
+}
+
+article {
+  word-break: break-word;
+  img {
+    max-width: 100%;
+  }
+}
+
+section {
+  overflow: hidden;
+  padding: 14px;
+
+  &.no-padding {
+    padding: 0;
+
+    header {
+      margin-bottom: 0;
+      padding: 10px;
+    }
+
+    footer {
+      margin-top: 0;
+      padding: 10px;
+    }
+  }
+
+  header {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DDD;
+    font-weight: bold;
+  }
+
+  footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #DDD;
+  }
+}
+
+.pagination {
+  height: auto;
+
+  ul {
+    background-color: white;
+  }
+}
+
+#main {
+}
+
+#sidebar {
+  section {
+    padding: 10px;
+
+    header {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    hr {
+      margin: 10px 0;
+    }
+
+    ul {
+      margin-bottom: 0;
+    }
+
+    &.profile {
+      .avatar {
+        float: left;
+        width: 64px;
+
+        img {
+          height: 64px;
+          width: 64px;
+        }
+      }
+
+      .info {
+        float: left;
+        margin-left: 10px;
+      }
+
+      .notifications {
+        a {
+          text-decoration: none;
+        }
+        a.read {
+          color: #CCC;
+          &:hover {
+            color: #AAA;
+          }
+        }
+      }
+    }
+
+    ul.nice-list {
+      list-style: none;
+      margin: 0;
+
+      li {
+        padding-bottom: 5px;
+        border-bottom: 1px dashed #EEE;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .nav li a {
+    background-color: white;
+  }
+}
+
+#settings {
+  header {
+    margin-bottom: 20px;
+
+    table.clear-table td.avatar {
+      width: 36px; padding-right: 10px;
+
+      img {
+        width: 36px; height: 36px;
+      }
+    }
+  }
+
+  .edit_profile td.avatar {
+    width: 80px; height: 80px; padding-right: 10px;
+  }
+}
+
+#profile {
+  .profile-wrap {
+    display: table;
+    width: 100%;
+
+    .profile-inner {
+      display: table-row;
+
+      & > div {
+        display: table-cell;
+        vertical-align: top;
+      }
+    }
+  }
+
+  .avatar {
+    width: 128px;
+    height: 128px;
+    padding-right: 15px;
+    line-height: 0;
+
+    img {
+      width: 128px;
+      height: 128px;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+#topic header {
+  color: gray;
+
+  h1 {
+    margin-bottom: 14px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  td {
+    vertical-align: top;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    line-height: 0;
+
+    img {
+      width: 72px;
+    }
+  }
+}
+
+#replies header {
+  margin-bottom: 5px;
+  padding: 0;
+  border-bottom: 0;
+  color: gray;
+}
+
+#settings .avatar img {
+  height: 128px;
+  width: 128px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  #profile .profile-wrap {
+    .avatar {
+      width: 64px;
+      height: auto;
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
+
+  article {
+    h1 {
+      font-size: 22px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  #topic {
+    header .avatar {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  table.item-list {
+    td.avatar {
+      width: 32px;
+      height: 32px;
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #topbar .logo {
+    display: block;
+  }
+}

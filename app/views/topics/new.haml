@@ -1,0 +1,23 @@
+- content_for :head do
+  = javascript_include_tag 'editor'
+  = stylesheet_link_tag 'editor'
+
+- @page_title = t('.create_topic')
+
+#main
+  .container
+    .row
+      .span12
+        %ul.breadcrumb
+          %li
+            = link_to t('.topics'), topics_path
+            %span.divider /
+          %li.active= t('.create_topic')
+    .row
+      #mainbar.span9
+        %section#editor.box
+          = form_for @topic, :validate => true do |f|
+            = render :partial => 'form', :object => f
+            .control-group= f.submit t('submit'), :class => 'btn primary'
+      #sidebar.span3
+        = render :partial => 'shared/sidebar_profile'

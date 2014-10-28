@@ -1,0 +1,26 @@
+- @page_title = "#{t('.edit_reply')} - #{t('.topics')}"
+
+- content_for :head do
+  = javascript_include_tag 'editor'
+  = stylesheet_link_tag 'editor'
+
+#main
+  .container
+    .row
+      .span12
+        %ul.breadcrumb
+          %li
+            = link_to t('.topics'), topics_path
+            %span.divider /
+          %li
+            = link_to @reply.topic.title, @reply.topic
+            %span.divider /
+          %li.active= t('.edit_reply')
+    .row
+      #mainbar.span9
+        %section#editor.box
+          = form_for @reply, :url => reply_path(@reply, :return_to => @return_to) do |f|
+            = render :partial => 'form', :object => f
+            .clearfix= f.submit t('update'), :class => 'btn primary'
+      #sidebar.span3
+        = render :partial => 'shared/sidebar_profile'
